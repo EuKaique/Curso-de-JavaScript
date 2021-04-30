@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        /* IF Aninhado */
+        var nota = 10
+        var resultado
+
+        if(nota >= 6){
+            res = "Aprovado"
+            if(nota >= 9){
+                res = "Aprovado com excelência"
+            }
+        }else if(nota >= 4 && nota < 6){
+            res = "Em recuperação"
+        }
+        else if(nota >= 2 || nota < 3){
+            if(nota <= 1){
+                res = "Reprovado com nota muito baixa"
+            }else{
+                res = "Reprovado"
+            }
+        }
+        document.write(res)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
