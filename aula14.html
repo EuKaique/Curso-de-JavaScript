@@ -7,16 +7,24 @@
     <title>CFB Cursos - JavaScript</title>
 
     <script>
-        /* Blocos de comando */
-        var num = 15
+        /* Array | Vetor - Parte 2 */
+        // var mochila = new Array()
+        var mochila = []
 
-        if(num > 10) res = "Maior que 10"
-        else res = "Menor que 10"
-
-        /*AS CHAVES PODEM SER OPCIONAIS {} */
-
-        document.write(res)
-        alert(res)
+        // Adicionar elemento no final do array
+        mochila.push("Faca")
+        mochila.push("Corda")
+        mochila.push("Perdeneira")
+        mochila.push("Chave")
+        mochila.push("Lanterna")
+        // Adicionar elemento no inicio do array
+        mochila.unshift("Pedra")
+        // Remover ultimo elemento do array
+        mochila.pop()
+        // Remover primeiro elemento do array
+        mochila.shift()
+        // Remove um ou mais elementos de qualquer posição do array
+        mochila.slice(1,3)
     </script>
 </head>
 <body style="background-color: black; color: white;">
