@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+        label{
+            display: block;
+        }
+        input{
+            display: block;
+        }
+        input[type="submit"],label{
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+<body style="background-color: black; color: white;">
+
+   <form name="curso1" id="curso1" action="#" method="POST">
+    <label>Nome</label>
+    <input type="text" name="fnome" id="teste" value="Primeiro - 1">
+    <label>Senha</label>
+    <input type="password" name="fsenha" value="123">
+    <input type="submit" name="btnEnviar" value="Enviar">
+   </form>
+
+    <hr>
+
+    <script>
+        /* Formulário */
+
+        document.write(document.getElementById("curso1").elements[0].value)
+
+        var fm = document.forms[0]
+        var el = fm.elements
+
+        for(var i = 0; i < el.length-1; i++){
+            el[i].style.color="#fff"
+            el[i].style.backgroundColor="#00d"
+            el[i].value="CFB Cursos"
+        }
+
+        //document.write(fm)
+    </script>
+</body>
+</html>
