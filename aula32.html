@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #fff;
+        }
+    </style>
+    <script>
+        /* Eventos */
+
+        function mudaCor(obj,cor){
+            obj.style.backgroundColor=cor
+        }
+        function mudaPosicao(obj){
+            obj.style.position="absolute"
+            obj.style.left=Math.random()*500+"px"
+            obj.style.top=Math.random()*500+"px"
+        }
+        function ola(){
+            var data = new Date()
+            var hora = data.getHours()
+            var txt = ""
+
+            if(hora < 12){
+                txt = "Bom dia"
+            }
+            else if(hora < 18){
+                txt = "Boa tarde"
+            }
+            else{
+                txt = "Boa noite"
+            }
+            alert('Olá, ' + txt)
+        }
+    </script>
+
+</head>
+<body style="background-color: black; color: white;" onload="ola()">
+    <div id="div1" onmouseover="mudaCor(this,'#f00')" onmouseout="mudaCor(this,'#000')"></div>
+    <br>
+    <button onclick="alert('CFB Cursos')" onmouseover="mudaPosicao(this)">Clique em mim</button>
+</body>
+</html>

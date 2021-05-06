@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #fff;
+            background-color: #f00;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+
+</head>
+<body style="background-color: black; color: white;" >
+    <div id="div1" onclick="adiciona()"></div>
+
+    <script>
+        /* addEventListener parte 2 */
+
+        var px = 0
+        var py = 0
+
+        function move(){
+            var obj = document.getElementById('div1')
+            var tecla = event.keyCode
+            // 37 = Esquerda, 38 = Cima, 39 = Direita, 40 = Baixo
+            if(tecla == 37){
+                px -= 10
+                obj.style.left=px+"px"
+            }else if(tecla == 38){
+                py -= 10
+                obj.style.top=py+"px"
+            }else if(tecla == 39){
+                px += 10
+                obj.style.left=px+"px"
+            }else if(tecla == 40){
+                py += 10
+                obj.style.top=py+"px"
+            }else if(tecla == 13){
+                alert('Event KeyDown removido!')
+                document.removeEventListener("keydown", move)
+                obj.style.backgroundColor="#000"
+            }
+        }
+        document.addEventListener('keydown', move)
+
+        function adiciona(){
+            var obj = document.getElementById('div1')
+            obj.style.backgroundColor="#f00"
+
+            alert('Event KeyDown adicionado!')
+            document.addEventListener("keydown", move)
+        }
+    </script>
+</body>
+</html>
