@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <style>
+        #jogador{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: #fb0;
+            border: 1px solid #fff;
+            width: 50px;
+            height: 50px;
+        }
+        button{
+            margin-top: 50px;
+        }
+    </style>
+    <script>
+        // requestAnimationFrame
+
+        var jog
+        var vel
+        var dx
+        var dy
+        var px
+        var py
+        var anima
+        var estado
+
+        function inicia() {
+            vel=2
+            dx=1
+            dy=0
+            px=0
+            py=0
+            estado=1
+
+            jog=document.getElementById('jogador')
+            jog.addEventListener('click',movePara)
+
+            document.getElementById('iniciar').addEventListener('click',mover)
+            document.getElementById('para').addEventListener('click',parar)
+
+            game()
+        }
+
+        function movePara(){
+            if(estado){
+                estado=0
+                jog.style.backgroundColor="#000"
+                cancelAnimationFrame(anima)
+            }else{
+                estado=1
+                jog.style.backgroundColor="#fb0"
+                anima=requestAnimationFrame(game)
+            }
+        }
+        
+        function mover(){
+            if(!estado){
+                estado=1
+                jog.style.backgroundColor="#fb0"
+                anima=requestAnimationFrame(game)
+            }
+        }
+        function parar(){
+            estado=0
+            jog.style.backgroundColor="#000"
+            cancelAnimationFrame(anima)
+        }
+
+        function game() {
+            px+=(dx*vel)
+            //py += (dy*vel)
+            jog.style.left=px+"px"
+            //jog.style.top=py+"px"
+            if(px > 800){
+                dx=-1
+            }else if(px == 0){
+                dx=1
+            }
+
+            anima=requestAnimationFrame(game)
+        }
+
+        window.addEventListener("load",inicia)
+    </script>
+</head>
+<body style="background-color: black; color: white;">
+   <div id="jogador"></div>
+   <button id="iniciar">Iniciar</button>
+   <button id="para">Parar</button>
+</body>
+</html>
