@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+</head>
+<style>
+    #carro{
+        width: 400px;
+        height: 400px;
+    }
+    .c1{
+        background-image: url('./images/c1.png');
+    }
+    .c2{
+        background-image: url('./images/c2.png');
+    }
+    .c3{
+        background-image: url('./images/c3.png');
+    }
+</style>
+<script>
+    // Manipulando atributos HTML
+
+    function trocaCarro(c){
+        var carro = document.getElementById('carro')
+        if(c == 1){
+            carro.setAttribute('class','c1')
+        } else if(c == 2){
+            carro.setAttribute('class','c2')
+        } else if(c == 3){
+            carro.setAttribute('class','c3')
+        }
+    }
+
+    function removerCarro(){
+        var carro = document.getElementById('carro')
+        carro.removeAttribute('class')
+    }
+
+    function verifica(){
+        var carro = document.getElementById('carro')
+        if(carro.hasAttribute('class')){
+            alert('Existe o atributo class na tag')
+        }else{
+            alert('Não existe o atributo class na tag')
+        }
+    }
+
+</script>
+<body>
+    <button onclick="trocaCarro(1)">Carro 1</button>
+    <button onclick="trocaCarro(2)">Carro 2</button>
+    <button onclick="trocaCarro(3)">Carro 3</button>
+    <button onclick="removerCarro()">Remover carro</button>
+    <button onclick="verifica()">Verifica</button>
+    <div id="carro"></div>
+</body>
+</html>

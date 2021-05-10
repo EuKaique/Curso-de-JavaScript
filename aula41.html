@@ -8,16 +8,51 @@
 
     <style>
         #dvSlider{
+            margin-left: 125px;
             width: 1000px;
             height: 300px;
             border: 1px solid #fff;
+        }
+        .btnLeft{
+            position: absolute;
+            top: 120px;
+            left: 50px;
+            font-size: 48px;
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .btnRight{
+            position: absolute;
+            top: 120px;
+            left: 1180px;
+            font-size: 48px;
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #barra{
+            position: absolute;
+            top: 330px;
+            left: 230px;
+            width: 800px;
+            height: 5px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 5px;
+        }
+        #carregandoBarra{
+            width: 0%;
+            height: 100%;
+            background-color: rgb(41, 194, 41);
         }
     </style>
     <script>
     // Slider
     
     var images = []
-    var slider, imgAtual, maxImg, tmp, tempoTroca
+    var slider, imgAtual, maxImg,tempoTroca, tmp, vtempo, vbarra
 
     function preCarregamento(){
         var slide = 1
@@ -37,17 +72,32 @@
         imgAtual = 0
         maxImg = images.length-1
         slider = document.getElementById('dvSlider')
+        vbarra = document.getElementById('carregandoBarra')
         carregaImagem(imgAtual)
-        tempoTroca = 3000
-        tmp = setInterval(troca,tempoTroca)
+        tempoTroca = 0
+        anima()
     }
 
-    function troca(){
-        imgAtual++
+    function troca(dir){
+        tempoTroca = 0
+        imgAtual+=dir
         if(imgAtual>maxImg){
             imgAtual = 0
+        }else if(imgAtual < 0){
+            imgAtual = maxImg   
         }
         carregaImagem(imgAtual)
+    }
+
+    function anima() {
+        tempoTroca++
+        if(tempoTroca >= 500){
+            tempoTroca = 0
+            troca(1)
+        }
+        vtempo = tempoTroca/5
+        vbarra.style.width=vtempo+"%"
+        window.requestAnimationFrame(anima)
     }
 
     window.addEventListener("load",inicia)
@@ -55,5 +105,10 @@
 </head>
 <body style="background-color: black; color: white;">
    <div id="dvSlider"></div>
+   <button class="btnLeft" onclick="troca(-1)"><</button>
+   <button class="btnRight" onclick="troca(1)">></button>
+   <div id="barra">
+       <div id="carregandoBarra"></div>
+   </div>
 </body>
 </html>

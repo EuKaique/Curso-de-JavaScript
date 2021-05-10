@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+</head>
+<style>
+
+</style>
+<body>
+    <p id="txt">CFB Cursos - Curso de JavaScript - aula 46 do curso de javaScript</p>
+
+    <script>
+        // Strings - Match
+    
+        var text = document.getElementById('txt').innerHTML
+
+        var resultado = text.match(/\w/ig)
+
+        document.write(resultado + " : " + resultado.length + "<br>")
+        document.write(resultado[1])
+    
+    </script>
+</body>
+</html>
