@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        table, td, th, tr{
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+<body style="background-color: black; color: white;">
+   <div id="titulo"></div>
+
+   <table id="tbNotas">
+       <tr>
+           <th>Alunos</th><th>Nota 1</th><th>Nota 2</th><th>Total</th>
+       </tr>
+       <tr>
+           <td>Al1</td><td>4.5</td><td>8</td><td id="n1"></td>
+       </tr>
+       <tr>
+           <td>Al2</td><td>2.2</td><td>10</td><td id="n2"></td>
+       </tr>
+       <tr>
+           <td>Al3</td><td>4.1</td><td>2.5</td><td id="n3"></td>
+       </tr>
+       <tr>
+           <td>Al4</td><td>10</td><td>9</td><td id="n4"></td>
+       </tr>
+   </table>
+   <script>
+    // Formatação condicional
+
+    var tabela = document.getElementById('tbNotas')
+    var nota
+    
+    for(var i = 1; i < tabela.rows.length; i++){
+        nota = parseFloat(tabela.rows[i].cells[1].innerHTML) + parseFloat(tabela.rows[i].cells[2].innerHTML)
+        tabela.rows[i].cells[3].innerHTML = nota
+    }
+
+    var n = []
+
+    n[0] = document.getElementById('n1')
+    n[1] = document.getElementById('n2')
+    n[2] = document.getElementById('n3')
+    n[3] = document.getElementById('n4')
+    
+    for(var i = 0; i < 4; i++){
+        if(n[i].innerHTML < 7){
+            n[i].style.color="#f00"
+        }else{
+            n[i].style.color="#00f"
+        }
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <style>
+        #dvSlider{
+            width: 1000px;
+            height: 300px;
+            border: 1px solid #fff;
+        }
+    </style>
+    <script>
+    // Slider
+    
+    var images = []
+    var slider, imgAtual, maxImg, tmp, tempoTroca
+
+    function preCarregamento(){
+        var slide = 1
+        for(i = 0; i < 5; i++){
+            images[i] = new Image()
+            images[i].src="images/s"+slide+".jpg"
+            slide++
+        }
+    }
+    
+    function carregaImagem(img){
+        slider.style.backgroundImage="url('"+images[img].src+"')"
+    }
+    
+    function inicia(){
+        preCarregamento()
+        imgAtual = 0
+        maxImg = images.length-1
+        slider = document.getElementById('dvSlider')
+        carregaImagem(imgAtual)
+        tempoTroca = 3000
+        tmp = setInterval(troca,tempoTroca)
+    }
+
+    function troca(){
+        imgAtual++
+        if(imgAtual>maxImg){
+            imgAtual = 0
+        }
+        carregaImagem(imgAtual)
+    }
+
+    window.addEventListener("load",inicia)
+    </script>
+</head>
+<body style="background-color: black; color: white;">
+   <div id="dvSlider"></div>
+</body>
+</html>
