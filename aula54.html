@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>    
+    <meta charset="utf-8">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+        #painel{
+            width: 400px;
+            height: 500px;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+    <script>
+        // Screen
+
+        var painel
+
+        function inicia(){
+            painel = document.getElementById("painel")
+            painel.innerHTML += "Resolução: " + screen.width + "x" + screen.height + "<hr>"
+            painel.innerHTML += "Resolução disponível: " + screen.availWidth + "x" + screen.availHeight + "<hr>"
+            painel.innerHTML += "Profundidade de cores (Imagens): " + screen.colorDepth + "bits<hr>"
+            painel.innerHTML += "Cor da tela (Pixels): " + screen.pixelDepth + "bits<hr>"
+        }    
+        window.addEventListener("load", inicia)
+
+    </script>
+</head>
+<body style="background-color: black; color: white;">
+
+    <div id="painel"></div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>    
+    <meta charset="utf-8">
+    <title>CFB Cursos - JavaScript</title>
+    <style></style>
+    <script>
+        // Open e Close
+        var minhaJanela
+
+        function abreJ(){
+            minhaJanela = window.open("aula01.html","_blank","width=400px height=300px top=300px left=200px")
+        }
+        function fechaJ(){
+            minhaJanela.close()
+        }
+
+    </script>
+</head>
+<body style="background:black; color:white;">
+    
+    <button onclick="abreJ()">Abre Janela</button>
+    <button onclick="fechaJ()">Fecha Janela</button>
+
+</body>
+</html>
