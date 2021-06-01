@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>    
+    <meta charset="utf-8">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+        body{
+            background-color: black;
+            color: #fff;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+    <script>
+        // Objeto Location parte 01
+
+        var aux = location.hash
+        var dados = aux.split("#")
+        var var1 = dados[1]
+        var var2 = dados[2]
+
+        document.write(var1)
+        document.write("<br>")
+
+        var h = location.href
+        document.write(h)
+        document.write("<br>")
+
+        var o = location.origin // protocolo, hostname, porta
+        document.write(o)
+        document.write("<br>")
+
+        var aux = location.search
+        var dados = aux.split("?")
+        var var1 = dados[1].split("=")[1]
+        document.write(var1)
+        document.write("<hr>")
+        
+    </script>
+</head>
+<body>
+
+    <h1>p4.html</h1>
+
+    <a href="./aula56.html">Voltar</a>
+</body>
+</html>
