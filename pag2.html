@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>    
+    <meta charset="utf-8">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+
+    </style>
+    <script>
+        // Session Storage
+        function inicia() {
+            document.getElementById("painel").innerHTML = sessionStorage.nome   
+        }
+        window.addEventListener("load", inicia)
+        
+    </script>
+</head>
+<body style="background-color: rgb(65, 0, 0); color: white;">
+
+    <h1>Página 2</h1>
+    <div id="painel"></div>
+</body>
+</html>

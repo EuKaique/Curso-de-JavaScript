@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>    
+    <meta charset="utf-8">
+    <title>CFB Cursos - JavaScript</title>
+    <style></style>
+    <script>
+        // Local Storage parte 01
+
+        var vCorFundo, vCorTexto, vNome
+        
+        if(typeof(Storage) != "undefined" ){
+
+        }else{
+            document.write("O browser não tem suporte pra Web Storage")
+        }
+
+        function gravar(){
+            vNome = document.getElementById("fnome").value
+            localStorage.corFundo = vCorFundo
+            localStorage.corTexto = vCorTexto
+            localStorage.nome = vNome
+        }
+
+        function defineCor(op,cor){
+            if(op == 1){
+                document.body.style.backgroundColor = cor
+                vCorFundo = cor
+            }else{
+                document.body.style.color = cor
+                vCorTexto = cor
+            }
+        }
+        
+    </script>
+</head>
+<body style="background-color: gray; color: white;">
+
+    <p>LocalStorage - Curso de JavaScript</p>
+
+    <form name="dados">
+        <label>Nome:</label></br>
+        <input type="text" name="fnome" id="fnome" size="20"></br></br>
+        <label>Cor de fundo:</label></br>
+        <input type="radio" name="fcorF" onclick="defineCor(1,'#000')">Preto<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1,'#fff')">Branco<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1,'#f00')">Vermelho<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1,'#0f0')">Verde<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1,'#00f')">Azul<br><br>
+        <label>Cor do texto:</label></br>
+        <input type="radio" name="fcorT" onclick="defineCor(2,'#000')">Preto
+        <input type="radio" name="fcorT" onclick="defineCor(2,'#fff')">Branco<br><br>
+        <input type="button" value="Gravar" onclick="gravar()">
+    </form>
+    
+</body>
+</html>

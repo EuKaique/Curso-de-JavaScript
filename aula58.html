@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>    
+    <meta charset="utf-8">
+    <title>CFB Cursos - JavaScript</title>
+    <style></style>
+    <script>
+        // Local Storage parte 01
+
+        if(typeof(Storage) != "undefined" ){
+            if(localStorage.visitas){
+                    localStorage.visitas = Number(localStorage.visitas) + 1
+            }else{
+                localStorage.visitas = 1 
+            }
+            document.write("Visitas: " + localStorage.visitas)
+        }else{
+            document.write("O browser não tem suporte pra Web Storage")
+        }
+
+    </script>
+</head>
+<body style="background-color: gray; color: white;">
+
+
+    
+</body>
+</html>
