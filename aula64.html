@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>    
+    <meta charset="utf-8">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+
+    </style>
+    <script>
+        // ReplaceChild
+
+        function inicia(){
+            var novoH1 = document.createElement("h1")
+            var listaCursos = document.getElementById("cfbcursos")
+            var antigoP = listaCursos.childNodes[7]
+            var txtH = document.createTextNode(antigoP.innerHTML)
+            novoH1.appendChild(txtH)
+            listaCursos.replaceChild(novoH1, antigoP)
+        }
+        window.addEventListener("load", inicia)
+    </script>
+</head>
+<body>
+    <div id="cfbcursos">
+        <p>Curso de JavaScript</p>
+        <p>Curso de HTML/HTML5</p>
+        <p>Curso de CSS</p>
+        <p>Curso de PHP/MySQL</p>
+        <p>Curso de C++</p>
+        <p>Curso de Photoshop</p>
+        <p>Curso de Unity/C#</p>
+        <p>Curso de Flash</p>
+    </div>
+</body>
+</html>
