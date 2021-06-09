@@ -2,8 +2,10 @@ var dirxJ, diryJ, jog, velJ, velT, velB, pjx, pjy
 var tamTelaH, tamTelaW
 var jogo
 var frames
-var contBombas, bombasTotal,tmpCriaBomba
-var vidaPlaneta
+var contBombas, bombasTotal, tmpCriaBomba
+var vidaPlaneta, barraPlaneta
+var ie, isom
+var telaMsg, mensagem
 
 function teclaDw(event){
 
@@ -61,6 +63,7 @@ function controlaBomba(){
             bombasTotal[i].style.top = pi + "px"
             if(pi > tamTelaH){
                 vidaPlaneta -= 10
+                criaExplosao(2, bombasTotal[i].offsetLeft, null)
                 bombasTotal[i].remove()
             }
         }
@@ -109,11 +112,62 @@ function colisaoTiroBomba(tiro){
                   ((tiro.offsetLeft + 6) >= (bombasTotal[i].offsetLeft)) // parte direita tiro com parte esquerda da bomba  
               )  
             ){
+                criaExplosao(1, bombasTotal[i].offsetLeft-25, bombasTotal[i].offsetTop)
                 bombasTotal[i].remove()
                 tiro.remove()
             }
         }
     }
+}
+
+function criaExplosao(tipo,x,y){
+    if(document.getElementById("explosao"+(ie-2))){
+        document.getElementById("explosao"+(ie-2)).remove()
+    }
+
+    var explosao = document.createElement("div")
+    var img = document.createElement("img")
+    var som = document.createElement("audio")
+    // Atributos para div
+    var att1 = document.createAttribute("class")
+    var att2 = document.createAttribute("style")
+    var att3 = document.createAttribute("id")
+    // Atributos para imagem
+    var att4 = document.createAttribute("src")
+    // Atributos para o audio
+    var att5 = document.createAttribute("src")
+    var att6 = document.createAttribute("id")
+
+    att3.value = "explosao"+ie
+    if(tipo == 1){
+        att1.value = "explosaoAr"
+        att2.value = "top:"+y+"px; left:"+x+"px;"
+        att4.value = "explosao_ar.gif?" + new Date()
+    }else{
+        att1.value = "explosaoChao"
+        att2.value = "top:"+(tamTelaH-57)+"px; left:"+(x-17)+"px;"
+        att4.value = "explosao_chao.gif?" + new Date()
+    }
+    att5.value = "ex1.mp3?" + new Date()
+    att6.value = "som"+isom
+
+    explosao.setAttributeNode(att1)
+    explosao.setAttributeNode(att2)
+    explosao.setAttributeNode(att3)
+
+    img.setAttributeNode(att4)
+
+    som.setAttributeNode(att5)
+    som.setAttributeNode(att6)
+
+    explosao.appendChild(img)
+    explosao.appendChild(som)
+
+    document.body.appendChild(explosao)
+    document.getElementById("som"+isom).play()
+
+    ie++
+    isom++
 }
 
 function controlaJogador(){
@@ -123,17 +177,62 @@ function controlaJogador(){
     jog.style.left = pjx + "px"
 }
 
+function gerenciaGame(){
+    barraPlaneta.style.width = vidaPlaneta + "px"
+    if(contBombas <= 0){    
+        jogo = false
+        clearInterval(tmpCriaBomba)
+        telaMsg.style.backgroundImage = "url('vitoria.gif')"
+        telaMsg.style.backgroundPosition = "center"
+        telaMsg.style.backgroundSize = "cover"
+        telaMsg.style.display = "block"
+    }
+    else if(vidaPlaneta <= 0){
+        jogo = false
+        clearInterval(tmpCriaBomba)
+        telaMsg.style.backgroundImage = "url('derrota.jpg')"
+        telaMsg.style.backgroundPosition = "center"
+        telaMsg.style.backgroundSize = "cover"
+        telaMsg.style.display = "block"
+    }
+}
+
 function gameLoop(){
     if(jogo){
         controlaJogador()
         controleTiro()
         controlaBomba()
     }
+    gerenciaGame()
     frames = requestAnimationFrame(gameLoop)
 }
 
-function inicia(){
+function reinicia(){
+    mensagem = document.getElementById("mensagem")
+    mensagem.style.display = "none"
+    bombasTotal = document.getElementsByClassName("bomba")
+    var tam = bombasTotal.length
+    for(var i = 0; i < tam; i++){
+        if(bombasTotal[i]){
+            bombasTotal[i].remove()
+        }
+    }
+    telaMsg.style.display = "none"
+    clearInterval(tmpCriaBomba)
+    cancelAnimationFrame(frames)
+    vidaPlaneta = 100
+    pjx = tamTelaW / 2
+    pjy = tamTelaH / 2
+    jog.style.top = pjy + "px"
+    jog.style.left = pjx + "px"
+    contBombas = 15
     jogo = true
+    tmpCriaBomba = setInterval(criarBombas,1700)
+    gameLoop()
+}
+
+function inicia(){
+    jogo = false
 
     //Ini tela
     tamTelaH = window.innerHeight
@@ -152,12 +251,19 @@ function inicia(){
     jog.style.top = pjy + "px"
     jog.style.left = pjx + "px"
 
-    clearInterval(tmpCriaBomba)
-    contBombas = 150
+    
+    contBombas = 15
     vidaPlaneta = 100
-    tmpCriaBomba = setInterval(criarBombas,1700)
+    barraPlaneta = document.getElementById("barraPlaneta")
+    barraPlaneta.style.width = vidaPlaneta + "px"
+    ie = 0
+    isom = 0
 
-    gameLoop()
+    telaMsg = document.getElementById("telaMsg")
+    telaMsg.style.backgroundImage = "url('intro.png')"
+    telaMsg.style.display = "block"
+    document.getElementById("btnJogar").addEventListener("click",reinicia)
+
 }
 
 window.addEventListener("load", inicia)
