@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+    <style>
+        #painel{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+    <script>
+        //HasFocus
+
+        setInterval(foco,0)
+        function foco(){
+
+            var painel = document.getElementById("painel")
+            var dvmsg = document.getElementById("dvmsg")
+            var res = document.getElementById("simnao")
+            if(document.hasFocus()){
+                res.innerHTML = ""
+                painel.style.display = "none"
+                dvmsg.style.color = "#000"
+            }else{
+                painel.style.display = "block"
+                dvmsg.style.color = "#f00"
+                res.innerHTML = ">>NÃO<<"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="painel"></div>
+    <div id="dvmsg">Página <span id="simnao"></span>está em foco</div>
+    <img src="./images/logo.png" width="100px" alt="logo">
+</body>
+</html>
