@@ -1,0 +1,7 @@
+.dv{
+    width: 300px;
+    height: 400px;
+    cursor: pointer;
+    background-image: url("../images/c2.png");
+    display: inline-block;
+}
