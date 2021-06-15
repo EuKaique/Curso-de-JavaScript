@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // FOR OF
+
+        let notas = [2,5,8,9,10,8,7,4]
+        let aprovado = 0
+        let reprovado = 0
+
+        for(var n of notas){
+            n >= 6 ? aprovado++ : reprovado++
+        }
+
+        console.log("Aprovado: " + aprovado)
+        console.log("Reprovado: " + reprovado)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
