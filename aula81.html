@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // FUNÇÃO GERADORA
+
+        function* cont(n){
+            let c = 0
+
+            while(c<n){
+                yield console.log(c) // yield devolve o controle para a estrutura de repetição, executando uma única vez
+                c++
+            }
+        }
+
+        const ct = cont(10)
+
+        console.log(ct.next())
+        console.log(ct.next())
+        console.log(ct.next())
+        console.log(ct.next())
+        console.log(ct.next())
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // ARROW FUNCTION
+
+        const soma = (...num) => {
+            let res = 0
+
+            for(n of num){
+                res += n
+            }
+            return res
+        }
+
+        const par = num => {
+            if(num%2 == 0){
+                return true
+            }else{
+                return false
+            }
+        }
+
+        console.log(soma(1,6))
+        console.log(par(5) ? "É par" : "É impar")
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
