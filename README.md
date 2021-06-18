@@ -8,7 +8,7 @@
 - DOM
 - Operadores Lógicos e operadores aritméticos
 - Estrutura condicional (IF, ELSE, ELSE IF)
-- Estrutura de repetição (WHILE, DO WHILE, FOR, FOR IN, FOR OF)
+- Estrutura de repetição (WHILE, DO WHILE, FOR, FOR IN, FOR OF, FOR EACH)
 - Switch case
 - Arrays
 - Incremento e decremento
