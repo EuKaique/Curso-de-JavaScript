@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // MAP 02
+
+        function mostraConteudo(){
+            let produtos = new Map([
+                ["01","Mouse"],
+                ["02","Teclado"],
+                ["03","Monitor"],
+                ["04","Joystick"]
+            ])
+            produtos.set("05","Gabinete")
+
+            //produtos.clear()
+            //produtos.delete("03")
+
+            document.write("Tamanho: " + produtos.size + "<br>")
+
+            document.write(produtos.has() + "<br>") // Retorna verdadeiro ou falso
+
+            function info(chave,valor){
+                document.write("Chave: " + chave + " - Valor: " + valor)    
+            }
+
+            //produtos.forEach()
+
+            let itk = produtos.keys()
+            let itv = produtos.values()
+
+            document.write(itk.next().value + "<br>")
+            document.write(itv.next().value)
+
+        }
+
+    </script>
+</head>
+<body onload="mostraConteudo()">
+    
+</body>
+</html>

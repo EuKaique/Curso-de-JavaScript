@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // CLASSES - métodos
+
+        function mostraConteudo(){
+            class Carro{
+                constructor(marca,modelo,cor){
+                    this.marca = marca
+                    this.modelo = modelo
+                    this.cor = cor
+                    this.ligado = false
+                    this.km = 0
+                    this.comb = 10
+                }
+                info(){
+                    document.write("Marca......: " + this.marca + "<br>")
+                    document.write("Modelo.....: " + this.modelo + "<br>")
+                    document.write("Cor........: " + this.cor + "<br>")
+                    document.write("Ligado.....: " + (this.ligado ? "Sim" : "Não") + "<br>")
+                    document.write("KM.........: " + this.km + "<br>")
+                    document.write("Combustivel: " + this.comb + "<br>")
+                    document.write("-------------------------------" + "<br>")
+                }
+                ligar(){
+                    this.ligado = true
+                }
+                desliga(){
+                    this.ligado = false
+                }
+            }
+
+            let carro1 = new Carro("Fiat","Argo","Branco")
+            let carro2 = new Carro("Ford","Ka","Prata")
+            let carro3 = new Carro("GM","Onix","Preto")
+            let carro4 = new Carro("VW","Polo","Bêge")
+
+            carro1.ligar()
+            carro4.ligar()
+
+            carro1.info()
+            carro2.info()
+            carro3.info()
+            carro4.info()
+        }
+
+    </script>
+</head>
+<body onload="mostraConteudo()">
+    
+</body>
+</html>

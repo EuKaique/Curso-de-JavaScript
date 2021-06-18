@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // MAP 01
+
+        function mostraConteudo(){
+            let produtos = new Map([
+                ["01","Mouse"],
+                ["02","Teclado"],
+                ["03","Monitor"],
+                ["04","Joystick"]
+            ])
+
+            for(p of produtos){
+                document.write(p[1] + "<br>")
+            }
+        }
+
+    </script>
+</head>
+<body onload="mostraConteudo()">
+    
+</body>
+</html>
