@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // CLASSES - métodos Static
+
+        function mostraConteudo(){
+            class Carro{
+                static alerta = true
+                constructor(marca,modelo,cor){
+                    this.marca = marca
+                    this.modelo = modelo
+                    this.cor = cor
+                    this.ligado = false
+                    this.km = 0
+                    this.comb = 10
+                }
+                info(){
+                    document.write("Marca......: " + this.marca + "<br>")
+                    document.write("Modelo.....: " + this.modelo + "<br>")
+                    document.write("Cor........: " + this.cor + "<br>")
+                    document.write("Ligado.....: " + (this.ligado ? "Sim" : "Não") + "<br>")
+                    document.write("KM.........: " + this.km + "<br>")
+                    document.write("Combustivel: " + this.comb + "<br>")
+                    document.write("Alerta.....: " + (Carro.alerta ? "Sim" : "Não") + "<br>")
+                    document.write("-------------------------------" + "<br>")
+                }
+                ligar(){
+                    this.ligado = true
+                }
+                desliga(){
+                    this.ligado = false
+                }
+                set setComb(v){
+                    this.comb = v
+                    document.write("Combustivel alterado <br>")
+                }
+                set setAlerta(t){
+                    Carro.alerta = t
+                }
+                get getComb(){
+                    return this.comb
+                }
+                get getAlerta(){
+                    return Carro.alerta
+                }
+            }
+
+            let carro1 = new Carro("Fiat","Argo","Branco")
+            let carro2 = new Carro("Ford","Ka","Prata")
+            let carro3 = new Carro("GM","Onix","Preto")
+            let carro4 = new Carro("VW","Polo","Bêge")
+
+            carro1.setComb = 100
+            console.log(carro1.getComb)
+
+            Carro.alerta = false
+
+            carro1.ligar()
+
+            carro1.info()
+            
+        }
+
+    </script>
+</head>
+<body onload="mostraConteudo()">
+    
+</body>
+</html>

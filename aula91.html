@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - JavaScript</title>
+
+    <script>
+        // CLASSES - herança
+
+        function mostraConteudo(){
+            class Carro{
+                constructor(tpCarro,tpComb){
+                    this.qtdeComb = 100
+                    this.ligado = false
+                    this.tipoCarro = tpCarro // 1-passeio, 2-transporte, 3-combate
+                    this.tipoComb = tpComb // 1-gasolina, 2-diesel, 3-etanol
+                }
+                info(){
+                    document.write("Qtde Combus: " + this.qtdeComb + "<br>")
+                    document.write("Ligado.....: " + (this.ligado ? "Sim" : "Não") + "<br>")
+                    if(this.tipoCarro == 1){
+                        document.write("Tipo do Carro: Passeio <br>")
+                    }else if(this.tipoCarro == 2){
+                        document.write("Tipo do Carro: Transporte <br>")
+                    }else if(this.tipoCarro == 3){
+                        document.write("Tipo do Carro: Combate <br>")
+                    }
+                    if(this.tipoComb == 1){
+                        document.write("Tipo de Combus: Gasolina <br>")
+                    }else if(this.tipoComb == 2){
+                        document.write("Tipo de Combus: Diesel <br>")
+                    }else if(this.tipoComb == 3){
+                        document.write("Tipo de Combus: Etanol <br>")
+                    }
+                }
+                set setLigado(t){
+                    this.ligado = t
+                }
+                get getLigado(){
+                    return this.ligado
+                }
+                set setComb(v){
+                    this.qtdeComb = v
+                }
+                get getComb(){
+                    return this.qtdeComb
+                }
+            }
+
+            class CarroCombate extends Carro{
+                constructor(potTiros){
+                    super(3,2)
+                    this.tiros = 1000
+                    this.potTiros = potTiros
+                    this.blindagem = 100
+                }
+                info(){
+                    super.info()
+                    document.write("Qtde Tiros........: " + this.tiros + "<br>")
+                    document.write("Potência dos tiros: " + this.potTiros + "<br>")
+                    document.write("Blindagem.........: " + this.blindagem + "<br>")
+                    document.write("------------------------------- <br>")
+                }
+            }
+
+            class CarroTransporte extends Carro{
+                constructor(){
+                    super(2,3)
+                }
+            }
+
+            let carro1 = new CarroCombate(100)
+            let carro2 = new CarroTransporte()
+
+            carro1.setLigado = true
+            carro1.info()
+
+            carro2.info()
+            
+        }
+
+    </script>
+</head>
+<body onload="mostraConteudo()">
+    
+</body>
+</html>
